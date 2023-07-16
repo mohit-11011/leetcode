@@ -11,22 +11,25 @@ using namespace std;
 class Solution
 {
     public:
-    void revi(queue<int> &q)
-    {
-        if(q.empty())
-        {
-            return;
-        }
-        int x=q.front();
-        q.pop();
-        revi(q);
-        q.push(x);
-    }
     queue<int> rev(queue<int> q)
     {
         // add code here.
-        revi(q);
-        return q;
+         queue<int> ans;
+         stack<int> temp;
+        while(!q.empty())
+         {
+             
+             temp.push(q.front());
+             q.pop();
+             
+         }
+         while(!temp.empty())
+         {
+             ans.push(temp.top());
+             temp.pop();
+         }
+         return ans;
+        
     }
 };
 
